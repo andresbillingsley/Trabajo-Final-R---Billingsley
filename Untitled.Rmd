@@ -1,28 +1,120 @@
 ---
-title: "PROYECTO FINAL R - BILLINGSLEY"
-output: html_document
+title: "Proyecto Final"
+author: "José Andrés Billingsley Jimenez"
+date: "28/11/2019"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    theme: readable
+    highlight: tango
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# Expresiones Regulares
+
+> _Las expresiones regulares son útiles porque las cadenas generalmente contienen datos no estructurados o semiestructurados, y las expresiones regulares son un lenguaje conciso para describir patrones en cadenas._
+> 
+
+# Recurso 1
+
+El primer recurso consta de una [pagina web](https://stringr.tidyverse.org/articles/regular-expressions.html) diseñada utilizando R markdown donde se describen varias expresiones regulares. 
+
+### Primer Recurso - Pros
+
+1.	La navegación de los recursos es fácil e intuitivo. 
+2.	Tiene buen esquema de colores y tipografía.
+3.	La pagina utiliza R markdown como base.
+
+### Primer Recurso - Contras
+
+1.	El esquema de la página puede ser un poco monótono.
+2.	Contiene enlaces rotos. 
+3.  No incluye una introducción al tema.
+
+# Recurso 2 
+El segundo recurso consta de un vídeo de YouTube explicando conceptos básicos de expresiones regulares.
+
+<div align="left">
+   <iframe width="610" height="365" src="https://www.youtube.com/embed/sa-TUpSx1JA" frameborder="0" allowfullscreen>
+   </iframe>
+</div>
+
+### Segundo Recurso - Pros
+
+1.	El tutorial es muy completo, cubriendo muchas de las expresiones regulares mas usadas. 
+2.  Las explicaciones son claras y contienen muchos ejemplos.
+3.  El presentador empieza con ejemplos mas sencillos y termina complicándolos.
+
+### Segundo Recurso - Contras
+
+1.	Las explicaciones no son lo suficientemente concisas.
+2.	Explica un tema básico de forma muy compleja para un principiante.
+3.  El vídeo en si es muy extenso pudiendo ser mas breve. 
+
+# Markdown
+
+> _R Markdown es un formato de archivo para hacer documentos dinámicos con R. Un documento R Markdown está escrito en markdown, un formato de texto plano fácil de escribir y contiene fragmentos de código R incrustados._
+> 
+
+# Recurso 1
+
+El primer recurso consta de una [pagina web](https://rmarkdown.rstudio.com/lesson-1.html) diseñada utilizando R markdown donde se describen conceptos de R mardown. 
+
+### Primer Recurso - Pros
+
+1.  Contiene una introducción y un video explicando lo que es R markdown.
+2.  La página es fácil de navegar y entender.
+3.	El código en su contenido esta bien explicado y conciso. 
+
+### Primer Recurso - Contras
+
+1.  Muy pocos contras, quizá la pagina podría ser mas visualmente atractiva.
+
+# Recurso 2 
+El segundo recurso consta de un video de YouTube explicando conceptos básicos de R markdown.
+
+<div align="left">
+   <iframe width="610" height="365" src="https://www.youtube.com/embed/DNS7i2m4sB0" frameborder="0" allowfullscreen>
+   </iframe>
+</div>
+
+### Segundo Recurso - Pros
+
+1. El vídeo es conciso y directo al grano.
+2. La voz del presentador es clara y breve.
+
+### Segundo Recurso - Contras
+
+1. Posiblemente ha faltado profundizar el tema.
+2. El uso de mas ejemplos hubiera sido útil.
+3. El paso quizá sea un poco rápido para principiantes.
+
+# Arbol Negro de Cerezas
+
+> _El cerezo negro es un gran árbol que se encuentra en el Medio Oeste y en todo el este de los Estados Unidos. Las vistosas flores blancas aparecen como racimos colgantes a principios de primavera seguidos de frutos oscuros del tamaño de un guisante a fines del verano. La corteza madura es oscura y escamosa._
+> 
+
+### ggplot2
+
+En el siguiente gráfico analizamos la relación entre la altura (pies) y grosor (pulgadas) de un árbol de cerezas negro. También se ha añadido una línea de regresión para mejor visualizar la relación entre ambas variables. Como se puede ver, entre mayor el grosor del árbol, mayor su altura. 
+
+```{r fig-margin, fig.margin = TRUE, fig.cap = "Altura vs Grosor", fig.width=10, fig.height=5.5, cache=TRUE, message=FALSE, echo=FALSE}
+library(ggplot2)
+trees2 <- trees
+ggplot(trees2, aes(Girth, Height,)) +
+  geom_point() + geom_smooth(method='lm') +
+  theme(legend.position = 'bottom')
 ```
 
-## R Markdown
+### Tabla
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+En la siguiente tabla interactiva, encontramos los el conjunto de datos “trees” el cual es nativo a R. Los datos hace referencia a la altura (pies), grosor (pulgadas) y volumen (pies cúbicos) de 31 especímenes de arboles de cerezos negros en Estados Unidos. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r, echo=FALSE}
+library(DT)
+datatable(trees)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
